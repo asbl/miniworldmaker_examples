@@ -1,7 +1,7 @@
-from miniworldmaker import *
+import miniworldmaker as mwm
 
 
-class MyBoard(PixelBoard):
+class MyBoard(mwm.PixelBoard):
     birds = 0
 
     def on_setup(self):
@@ -26,9 +26,9 @@ class MyBoard(PixelBoard):
         Box(position=(730, 130))
         # row 4
         Box(position=(700, 90))
-        self.counter = NumberToken((20, 20))
+        self.counter = mwm.NumberToken((20, 20))
         self.counter.size = (100, 100)
-        self.shoots = NumberToken((120, 260), color=(200, 40, 40))
+        self.shoots = mwm.NumberToken((120, 260), color=(200, 40, 40))
         self.shoots.costume.font_size = 60
         self.shoots.size = (260, 200)
         self.is_running = True
@@ -40,7 +40,7 @@ class MyBoard(PixelBoard):
             print("set self.is_running to false")
 
 
-class Arrow(Actor):
+class Arrow(mwm.Actor):
 
     def on_setup(self):
         self.size = (30, 30)
@@ -70,7 +70,7 @@ class Arrow(Actor):
                 self.board.reset()
 
 
-class Plattform(Token):
+class Plattform(mwm.Token):
 
     def on_setup(self):
         self.add_image("images/stone.png")
@@ -83,7 +83,7 @@ class Plattform(Token):
         self.physics.friction = 2
 
 
-class Box(Actor):
+class Box(mwm.Actor):
 
     def on_setup(self):
         self.add_image("images/box_blue.png")
@@ -98,7 +98,7 @@ class Box(Actor):
         self.remove()
 
 
-class Bird(Actor):
+class Bird(mwm.Actor):
 
     def on_setup(self):
         self.add_image("images/fly.png")
@@ -121,5 +121,9 @@ class Bird(Actor):
         self.physics.shape_type = "circle"
         self.physics.stable = False
 
-board = MyBoard(1024, 700)
-board.show()
+def main():
+    board = MyBoard(1024, 700)
+    board.show()
+
+if __name__ == '__main__':
+    main()

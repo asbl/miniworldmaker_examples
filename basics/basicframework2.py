@@ -30,5 +30,9 @@ class Player(mwm.Token):
         self.move()
 
 
-board = MyBoard(columns=20, rows=8, tile_size=42, tile_margin=0)
-board.show()
+def main():
+    board = MyBoard(columns=20, rows=8, tile_size=42, tile_margin=0)
+    board.show()
+
+if __name__ == '__main__':
+    main()

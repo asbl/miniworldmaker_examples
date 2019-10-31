@@ -1,9 +1,9 @@
 import random
 
-from miniworldmaker import *
+import miniworldmaker as mwm
 
 
-class MyBoard(PixelBoard):
+class MyBoard(mwm.PixelBoard):
 
     def __init__(self, screen_x, screen_y):
         super().__init__(columns=screen_x, rows=screen_y)
@@ -16,7 +16,7 @@ class MyBoard(PixelBoard):
         self.add_image("images/galaxy.jpg")
 
 
-class Player(Actor):
+class Player(mwm.Actor):
 
     def __init__(self, position):
         super().__init__(position)
@@ -50,7 +50,7 @@ class Player(Actor):
         laser.direction = self.direction
 
 
-class Laser(Actor):
+class Laser(mwm.Actor):
 
     def on_setup(self):
         self.add_image("images/laser.png")
@@ -76,7 +76,7 @@ class Laser(Actor):
         self.remove()
 
 
-class Asteroid(Actor):
+class Asteroid(mwm.Actor):
     def __init__(self, position):
         super().__init__(position)
         self.add_image("images/asteroid.png")
@@ -90,7 +90,7 @@ class Asteroid(Actor):
         self.move()
 
 
-class Explosion(Actor):
+class Explosion(mwm.Actor):
     def __init__(self, position):
         super().__init__(position)
         self.size = (128, 128)

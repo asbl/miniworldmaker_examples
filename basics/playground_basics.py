@@ -1,14 +1,14 @@
-from miniworldmaker import *
+import miniworldmaker as mwm
 
 
-class MyBoard(TiledBoard):
+class MyBoard(mwm.TiledBoard):
     def on_setup(self):
         self.add_image("images/rasen.jpg")
         player1 = Player((4, 4))
         ball = Ball((6, 6))
 
 
-class Player(Token):
+class Player(mwm.Token):
     def on_setup(self):
         self.add_image("images/player.png")
         self.orientation = -90
@@ -32,12 +32,16 @@ class Player(Token):
       ball.direction = self.direction
       ball.move(2)
 
-class Ball(Token):
+class Ball(mwm.Token):
   def on_setup(self):
     self.add_image("images/ball.png")
 
+def main():
+    myboard = MyBoard(10, 10, 40, 0)
+    myboard.show()
+
+if __name__ == '__main__':
+    main()
 
 
 
-myboard = MyBoard(10, 10, 40, 0)
-myboard.show()

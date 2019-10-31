@@ -5,7 +5,7 @@ class MyBoard(PixelBoard):
 
     def on_setup(self):
         self.add_image(path="images/stone.jpg")
-        robot = Robot(position=(400, 400))
+        robot = Robot(position=(200, 200))
         robot.speed = 1
 
 
@@ -13,13 +13,15 @@ class Robot(Actor):
 
     def on_setup(self):
         self.size = (30, 30)
-        self.add_image("images/robo_green.png")
+        #self.add_image("images/robo_green.png")
         self.costume.orientation = - 90
+        self.size=(400,400)
 
     def act(self):
         pass
 
     def on_key_pressed(self, keys):
+        print(self.position, self.center, self.image)
         if "A" in keys:
             self.turn_left(10)
         if "D" in keys:

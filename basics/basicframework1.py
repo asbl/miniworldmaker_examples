@@ -1,7 +1,7 @@
-from miniworldmaker import *
+import miniworldmaker
 
 
-class MyBoard(TiledBoard):
+class MyBoard(miniworldmaker.TiledBoard):
 
     def on_setup(self):
         self.add_image(path="images/soccer_green.jpg")
@@ -12,7 +12,7 @@ class MyBoard(TiledBoard):
         stone.is_scaled_to_tile = True
 
 
-class Player(Actor):
+class Player(miniworldmaker.Actor):
 
     def __init__(self, position):
         super().__init__(position)
@@ -38,5 +38,10 @@ class Player(Actor):
             self.move()
 
 
-board = MyBoard(columns=20, rows=8, tile_size=42)
-board.show()
+def main():
+    board = MyBoard(columns=20, rows=8, tile_size=42)
+    board.show()
+
+
+if __name__ == '__main__':
+    main()

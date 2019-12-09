@@ -113,6 +113,7 @@ class Bird(mwm.Actor):
         if "bottom" in self.sensing_borders() or "right" in self.sensing_borders():
             self.remove()
 
+
     def setup_physics(self):
         self.physics.mass = 6
         self.physics.friction = 1
